@@ -1,6 +1,6 @@
 <?php
 
-class Students {
+class StudentModel {
 	private $dbh;
 	private $stmt;
 
