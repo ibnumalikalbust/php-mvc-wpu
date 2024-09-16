@@ -1,7 +1,8 @@
 <?php
 
 class Controller {
-	public function __construct () {
-		echo "CTL OK" . '<br>';
+	public function view($view, $data = []) {
+		$file = '../app/views/' . $view . '.php';
+		require_once $file;
 	}
 }
