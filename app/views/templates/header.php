@@ -25,6 +25,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="<?= BASEURL; ?>/about">About</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= BASEURL; ?>/student">Student</a>
+					</li>
 				</ul>
 			</div>
 		</div>
