@@ -35,4 +35,14 @@ class StudentModel {
 		$status = ($count == 0) ? false : true;
 		return $status;
 	}
+
+	public function deleteStudent ($id) {
+		$query = "DELETE FROM $this->table WHERE id=:id";
+		$this->db->query($query);
+		$this->db->bind('id', $id);
+		$this->db->execute();
+		$count = $this->db->rowCount();
+		$status = ($count == 0) ? false : true;
+		return $status;
+	}
 }

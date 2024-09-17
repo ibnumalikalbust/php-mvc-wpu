@@ -15,7 +15,10 @@
 				<?php foreach ($data['students'] as $student) : ?>
 					<li class="list-group-item d-flex justify-content-between align-items-center">
 						<span><?= $student['name']; ?></span>
-						<a href="<?= BASEURL; ?>/student/detail/<?= $student['id']; ?>" class="badge text-bg-primary rounded-pill text-decoration-none">detail</a>
+						<span>
+							<a href="<?= BASEURL; ?>/student/detail/<?= $student['id']; ?>" class="btn btn-sm btn-primary">detail</a>
+							<a href="<?= BASEURL; ?>/student/delete/<?= $student['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('delete?');">delete</a>
+						</span>
 					</li>
 				<?php endforeach; ?>
 			</ul>
