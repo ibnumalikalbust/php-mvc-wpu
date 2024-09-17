@@ -1,9 +1,25 @@
 	<header class="my-3">
-		<div class="container d-flex justify-content-between align-items-center">
-			<h3 class="p-0 m-0">Student List</h3>
-			<button type="button" id="insert-button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">ADD NEW</button>
+		<div class="container">
+			<h3 class="p-0 m-0 text-center">Student List</h3>
 		</div>
 	</header>
+	<div class="my-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-9">
+					<form action="<?= BASEURL; ?>/student/search" method="post" autocomplete="off">
+						<div class="input-group">
+							<input type="text" id="keyword" name="keyword" class="form-control" placeholder="search...">
+							<button class="btn btn-sm btn-primary" type="submit" id="search-button">SEARCH</button>
+						</div>
+					</form>
+				</div>
+				<div class="col-3">
+					<button type="button" id="insert-button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#formModal">ADD NEW</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="my-3">
 		<div class="container">
 			<?php Flasher::useFlash(); ?>

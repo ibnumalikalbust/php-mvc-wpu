@@ -23,6 +23,14 @@ class StudentModel {
 		return $data;
 	}
 
+	public function getStudentByName ($name) {
+		$query = "SELECT * FROM $this->table WHERE name LIKE :name";
+		$this->db->query($query);
+		$this->db->bind('name', "%$name%");
+		$data = $this->db->fetchAll();
+		return $data;
+	}
+
 	public function insertStudent ($data) {
 		$query = "INSERT INTO $this->table (`name`, `nrp`, `email`, `major`) VALUES (:name, :nrp, :email, :major)";
 		$this->db->query($query);

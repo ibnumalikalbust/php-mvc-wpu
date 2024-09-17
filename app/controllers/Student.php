@@ -59,4 +59,13 @@ class Student extends Controller {
 			exit();
 		}
 	}
+
+	public function search () {
+		$data['title'] = 'STUDENT';
+		$name = $_POST['keyword'];
+		$data['students'] = $this->model('StudentModel')->getStudentByName($name);
+		$this->view('templates/header', $data);
+		$this->view('student/index', $data);
+		$this->view('templates/footer');
+	}
 }
