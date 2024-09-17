@@ -17,8 +17,8 @@ class Student extends Controller {
 		$this->view('templates/footer');
 	}
 
-	public function add () {
-		if ($this->model('StudentModel')->addStudent($_POST)) {
+	public function insert () {
+		if ($this->model('StudentModel')->insertStudent($_POST)) {
 			Flasher::setFlash('success', 'student data addition success');
 			header('Location: ' . BASEURL . '/student');
 			exit();
@@ -36,6 +36,25 @@ class Student extends Controller {
 			exit();
 		} else {
 			Flasher::setFlash('danger', 'student data deletion failed');
+			header('Location: ' . BASEURL . '/student');
+			exit();
+		}
+	}
+
+	public function updateget () {
+		$id = $_POST['id'];
+		$data = $this->model('StudentModel')->getStudentById($id);
+		$data = json_encode($data);
+		echo $data;
+	}
+
+	public function update () {
+		if ($this->model('StudentModel')->updateStudent($_POST)) {
+			Flasher::setFlash('success', 'student data update success');
+			header('Location: ' . BASEURL . '/student');
+			exit();
+		} else {
+			Flasher::setFlash('danger', 'student data update failed');
 			header('Location: ' . BASEURL . '/student');
 			exit();
 		}

@@ -1,7 +1,7 @@
 	<header class="my-3">
 		<div class="container d-flex justify-content-between align-items-center">
 			<h3 class="p-0 m-0">Student List</h3>
-			<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">ADD</button>
+			<button type="button" id="insert-button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">ADD NEW</button>
 		</div>
 	</header>
 	<div class="my-3">
@@ -17,6 +17,7 @@
 						<span><?= $student['name']; ?></span>
 						<span>
 							<a href="<?= BASEURL; ?>/student/detail/<?= $student['id']; ?>" class="btn btn-sm btn-primary">detail</a>
+							<a data-id="<?= $student['id']; ?>" class="btn btn-sm btn-success update-button" data-bs-toggle="modal" data-bs-target="#formModal">update</a>
 							<a href="<?= BASEURL; ?>/student/delete/<?= $student['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('delete?');">delete</a>
 						</span>
 					</li>
@@ -24,15 +25,19 @@
 			</ul>
 		</div>
 	</main>
-	<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
+	<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 			<div class="modal-header">
-				<h1 class="modal-title fs-5" id="studentModalLabel">Add New Student</h1>
+				<h1 class="modal-title fs-5" id="formModalLabel">Student Form</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<form action="<?= BASEURL; ?>/student/add" method="post" autocomplete="off">
+			<form id="modal-form" action="<?= BASEURL; ?>/student/insert" method="post" autocomplete="off">
 				<div class="modal-body">
+					<div class="mb-3 d-none">
+						<label for="id" class="form-label">ID</label>
+						<input type="hidden" class="form-control" id="id" name="id" required>
+					</div>
 					<div class="mb-3">
 						<label for="name" class="form-label">Name</label>
 						<input type="text" class="form-control" id="name" name="name" required>
@@ -61,7 +66,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCEL</button>
-					<button type="submit" class="btn btn-primary">SUBMIT</button>
+					<button type="submit" id="submit-button" class="btn btn-primary">SUBMIT</button>
 				</div>
 			</form>
 			</div>
