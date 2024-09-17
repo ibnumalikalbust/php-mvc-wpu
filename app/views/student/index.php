@@ -4,6 +4,11 @@
 			<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">ADD</button>
 		</div>
 	</header>
+	<div class="my-3">
+		<div class="container">
+			<?php Flasher::useFlash(); ?>
+		</div>
+	</div>
 	<main class="my-3">
 		<div class="container">
 			<ul class="list-group">
