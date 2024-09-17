@@ -57,4 +57,9 @@ class Database {
 		$data = $this->stmt->fetch(PDO::FETCH_ASSOC);
 		return $data;
 	}
+
+	public function rowCount () {
+		$count = $this->stmt->rowCount();
+		return $count;
+	}
 }
