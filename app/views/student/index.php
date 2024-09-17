@@ -5,13 +5,13 @@
 	</header>
 	<main class="my-3">
 		<div class="container">
-			<?php foreach ($data['students'] as $student) : ?>
-				<ul>
-					<li><?= $student['name']; ?></li>
-					<li><?= $student['nrp']; ?></li>
-					<li><?= $student['email']; ?></li>
-					<li><?= $student['major']; ?></li>
-				</ul>
-			<?php endforeach; ?>
+			<ul class="list-group">
+				<?php foreach ($data['students'] as $student) : ?>
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+						<span><?= $student['name']; ?></span>
+						<a href="<?= BASEURL; ?>/student/detail/<?= $student['id']; ?>" class="badge text-bg-primary rounded-pill text-decoration-none">detail</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
 	</main>
